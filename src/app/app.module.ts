@@ -9,11 +9,17 @@ import { EffectsModule } from '@ngrx/effects';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { InvoicesComponent } from './components/invoices/invoices.component';
+import { ViewInvoiceComponent } from './components/view-invoice/view-invoice.component';
+import { CreateInvoiceComponent } from './components/create-invoice/create-invoice.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InvoicesComponent,
+    ViewInvoiceComponent,
+    CreateInvoiceComponent
   ],
   imports: [
     BrowserModule,
