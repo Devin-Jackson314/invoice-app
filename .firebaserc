@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "invoice-app-d67cd": {
+      "hosting": {
+        "invoice-app": [
+          "invoice-app-d67cd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "invoice-app-d67cd"
+  }
+}
