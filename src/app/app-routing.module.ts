@@ -4,7 +4,8 @@ import { InvoicesComponent } from './components/invoices/invoices.component';
 import { ViewInvoiceComponent } from './components/view-invoice/view-invoice.component';
 
 const routes: Routes = [
-   { path: 'invoices', component: InvoicesComponent },
+  {path: "", redirectTo: "/invoices", pathMatch: "full"},
+  { path: 'invoices', component: InvoicesComponent },
   { path: 'view', component: ViewInvoiceComponent}
 ];
 

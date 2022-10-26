@@ -12,6 +12,9 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { InvoicesComponent } from './components/invoices/invoices.component';
 import { ViewInvoiceComponent } from './components/view-invoice/view-invoice.component';
 import { CreateInvoiceComponent } from './components/create-invoice/create-invoice.component';
+import { DataService } from './services/data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -19,12 +22,15 @@ import { CreateInvoiceComponent } from './components/create-invoice/create-invoi
     AppComponent,
     InvoicesComponent,
     ViewInvoiceComponent,
-    CreateInvoiceComponent
+    CreateInvoiceComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule,
     AppRoutingModule,
+    HttpClientModule,
+  
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
@@ -33,7 +39,7 @@ import { CreateInvoiceComponent } from './components/create-invoice/create-invoi
     provideDatabase(() => getDatabase())
   ],
 
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
