@@ -1,4 +1,4 @@
-export interface Invoicedata {
+export interface Invoices {
     clientAddress: {
         city: string;
         country: string;
