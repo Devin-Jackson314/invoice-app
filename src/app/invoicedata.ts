@@ -1,6 +1,9 @@
 export interface Invoicedata {
     clientAddress: {
-       city:
+        city: string;
+        country: string;
+        postCode: string;
+        street: string;
     }
     city: string;
     country: string;
