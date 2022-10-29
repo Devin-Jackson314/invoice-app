@@ -1,4 +1,5 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
+import { loadInvoicessSuccess } from '../actions/invoices.actions';
 
 
 export const invoicesFeatureKey = 'invoices';
@@ -11,7 +12,9 @@ export const initialState: State = {
 
 };
 
-export const reducer = createReducer(
+export const InvoicesReducer = createReducer(
   initialState,
+
+  on(loadInvoicessSuccess, (State, invoices) => invoices)
 
 );
