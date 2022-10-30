@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { DataService } from 'src/app/services/data.service';
+import { InvoicesSelector } from 'src/app/store/selectors/invoices.selectors';
 
 @Component({
   selector: 'app-invoices',
@@ -9,7 +11,11 @@ import { DataService } from 'src/app/services/data.service';
 export class InvoicesComponent implements OnInit {
   myData: any;
 
-  constructor(private dataservice: DataService) { }
+  constructor(private dataservice: DataService, private store: Store) { 
+
+  }
+
+  myInvoices$ = this.store.select(InvoicesSelector)
 
   ngOnInit(): void {
     this.getMyData();

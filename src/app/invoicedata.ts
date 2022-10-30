@@ -14,6 +14,7 @@ export interface Invoices {
     createdAt: string;
     description: string;
     id: string;
+    items: object[];
 
 
 }
