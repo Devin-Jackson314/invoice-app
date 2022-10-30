@@ -14,7 +14,7 @@ export class loadInvoicesEffect {
     this.actions$.pipe(
         ofType(loadInvoicess),
         exhaustMap(() => this.dataService.getData().pipe(
-            map(invoices => loadInvoicessSuccess(invoices))
+            map(invoice => loadInvoicessSuccess(invoice))
         ))
     )
     )

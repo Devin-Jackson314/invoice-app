@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { DataService } from './services/data.service';
+import { loadInvoicess } from './store/actions/invoices.actions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'invoice-app';
+
+constructor(private data: DataService, private store: Store) { } 
+
+ngOnInit(){
+  this.store.dispatch(loadInvoicess());
+}
+
 }

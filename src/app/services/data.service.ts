@@ -13,6 +13,8 @@ fireBaseUrl = "https://invoice-app-d67cd-default-rtdb.firebaseio.com/";
 
   getData(): Observable<any> {
     this.Url = `${this.fireBaseUrl}${this.jsonExt}`
-   return this.http.get(this.Url);
+    console.log("action test")
+    return this.http.get(this.Url);
+    
   }
 }

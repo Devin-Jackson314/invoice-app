@@ -6,8 +6,8 @@ export const InvoicesSelector = createSelector(
     (state: Invoices[]) =>{
         const invoiceState = {...state}
         const invoiceArray: Invoices[] = [];
-        Object.keys(invoiceState).forEach((key: any) => {
-            invoiceArray.push({...invoiceState[key]})
+        Object.keys(invoiceState).forEach((invoice: any) => {
+            invoiceArray.push({...invoiceState[invoice]})
         })
         invoiceArray.pop()
         console.log(invoiceArray)
