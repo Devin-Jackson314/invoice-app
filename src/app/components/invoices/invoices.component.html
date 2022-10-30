@@ -1,1 +1,5 @@
-
+<div>
+  <div *ngFor="let invoice of myInvoices$ | async">
+    <p>{{ invoice.clientName }}</p>
+  </div>
+</div>

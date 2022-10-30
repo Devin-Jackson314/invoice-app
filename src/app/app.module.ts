@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -15,6 +15,7 @@ import { CreateInvoiceComponent } from './components/create-invoice/create-invoi
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { InvoicesReducer } from './store/reducers/invoices.reducer';
 
 
 @NgModule({
@@ -31,15 +32,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
   
-    StoreModule.forRoot(reducers, {
-      metaReducers
+    StoreModule.forRoot( {
+     invoices: InvoicesReducer
     }),
     EffectsModule.forRoot([]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase())
   ],
 
-  providers: [DataService],
+  providers: [DataService, Store],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
