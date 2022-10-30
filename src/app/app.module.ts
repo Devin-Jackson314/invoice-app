@@ -4,11 +4,7 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Store, StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { InvoicesComponent } from './components/invoices/invoices.component';
 import { ViewInvoiceComponent } from './components/view-invoice/view-invoice.component';
 import { CreateInvoiceComponent } from './components/create-invoice/create-invoice.component';
@@ -16,7 +12,9 @@ import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InvoicesReducer } from './store/reducers/invoices.reducer';
-
+import { loadInvoicesEffect } from './store/effects/loadinvoices';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,16 +26,15 @@ import { InvoicesReducer } from './store/reducers/invoices.reducer';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule,
+   
     AppRoutingModule,
     HttpClientModule,
   
     StoreModule.forRoot( {
      invoices: InvoicesReducer
     }),
-    EffectsModule.forRoot([]),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideDatabase(() => getDatabase())
+    EffectsModule.forRoot([loadInvoicesEffect]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
 
   providers: [DataService, Store],
