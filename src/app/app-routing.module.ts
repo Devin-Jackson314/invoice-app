@@ -6,7 +6,7 @@ import { ViewInvoiceComponent } from './components/view-invoice/view-invoice.com
 const routes: Routes = [
   {path: "", redirectTo: "/invoices", pathMatch: "full"},
   { path: 'invoices', component: InvoicesComponent },
-  { path: 'view', component: ViewInvoiceComponent}
+  { path: 'view/:id', component: ViewInvoiceComponent}
 ];
 
 @NgModule({

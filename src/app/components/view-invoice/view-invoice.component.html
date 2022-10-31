@@ -1,1 +1,44 @@
-<p>view-invoice works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <button>Go back</button>
+
+  <div class="infoCard" *ngFor="let invoice of myInvoice$ | async">
+    <div>
+      <p>{{ invoice.status }}</p>
+    </div>
+
+    <div>
+      <p>{{ invoice.description }}</p>
+
+      <div class="senderAddress">
+        <p>{{ invoice.senderAddress.street }}</p>
+        <p>{{ invoice.senderAddress.city }}</p>
+        <p>{{ invoice.senderAddress.postCode }}</p>
+        <p>{{ invoice.senderAddress.country }}</p>
+      </div>
+
+      <div class="invoiceDate">
+        <p>{{ invoice.createdAt }}</p>
+        <p>{{ invoice.paymentDue }}</p>
+      </div>
+
+      <div class="clientEmail">
+        <p>{{ invoice.clientEmail }}</p>
+      </div>
+
+      <div class="clientAddress">
+        <p>{{ invoice.clientName }}</p>
+        <p>{{ invoice.clientAddress.street }}</p>
+        <p>{{ invoice.clientAddress.city }}</p>
+        <p>{{ invoice.clientAddress.postCode }}</p>
+        <p>{{ invoice.clientAddress.country }}</p>
+      </div>
+
+      <div *ngFor="let item of invoice.items">
+        <p>{{ item.name }}</p>
+        <p>{{ item.price }}</p>
+        <p>{{ item.total }}</p>
+      </div>
+    </div>
+  </div>
+</div>
