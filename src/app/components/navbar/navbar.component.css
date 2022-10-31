@@ -1,0 +1,27 @@
+@media (min-width: 375px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 375px;
+    height: 72px;
+    background: #373b53;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-right: 16px;
+  }
+
+  .logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .moon {
+    margin-top: 19px;
+    margin-left: 177px;
+  }
+}
