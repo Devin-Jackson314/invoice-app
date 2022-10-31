@@ -11,6 +11,7 @@ import { Invoices } from 'src/app/invoicedata';
 })
 export class InvoicesComponent implements OnInit {
   myData: any;
+  Filter: any;
 
   constructor(private dataservice: DataService, private store: Store) { 
 

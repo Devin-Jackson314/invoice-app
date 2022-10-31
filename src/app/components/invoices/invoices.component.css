@@ -1,0 +1,82 @@
+@media (min-width: 375px) {
+  .headerContainer {
+    display: flex;
+    margin-top: 38px;
+  }
+
+  .plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 44px;
+    background-color: #7c5dfa;
+    border-radius: 24px;
+    margin-left: 144px;
+  }
+
+  .new {
+    margin-left: 10px;
+    color: #ffffff;
+  }
+
+  .cards {
+    width: 327px;
+    height: 134px;
+  }
+
+  .clientName {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    letter-spacing: -0.25px;
+
+    color: #858bb2;
+  }
+
+  .id {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+
+    color: #0c0e16;
+  }
+
+  .paymentDue {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+
+    color: #888eb0;
+  }
+
+  .total {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+
+    color: #0c0e16;
+  }
+}

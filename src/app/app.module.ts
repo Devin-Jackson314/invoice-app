@@ -13,6 +13,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InvoicesReducer } from './store/reducers/invoices.reducer';
 import { loadInvoicesEffect } from './store/effects/loadinvoices';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     InvoicesComponent,
     ViewInvoiceComponent,
     CreateInvoiceComponent,
-    NavbarComponent
+    NavbarComponent,
+  
   ],
   imports: [
     BrowserModule,
     StoreDevtoolsModule.instrument(),
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   
     StoreModule.forRoot( {
      invoices: InvoicesReducer
