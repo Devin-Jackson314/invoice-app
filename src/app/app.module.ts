@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFireModule} from '@angular/fire/compat'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Store, StoreModule } from '@ngrx/store';
@@ -14,7 +13,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InvoicesReducer } from './store/reducers/invoices.reducer';
 import { loadInvoicesEffect } from './store/effects/loadinvoices';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,15 +24,14 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
-   
+    StoreDevtoolsModule.instrument(),
     AppRoutingModule,
     HttpClientModule,
   
     StoreModule.forRoot( {
      invoices: InvoicesReducer
     }),
-    EffectsModule.forRoot([loadInvoicesEffect]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    EffectsModule.forRoot([loadInvoicesEffect])
   ],
 
   providers: [DataService, Store],
