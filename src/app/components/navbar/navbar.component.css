@@ -24,4 +24,9 @@
     margin-top: 19px;
     margin-left: 177px;
   }
+
+  .vl {
+    border-left: 1px solid #494e6e;
+    height: 72px;
+  }
 }
