@@ -2,10 +2,10 @@
 
 <div>
   <div *ngFor="let i = index; let invoice; of: myInvoices$ | async">
-    <p>{{ invoice.clientName }}</p>
-    <p>{{ invoice.id }}</p>
-    <p>{{ invoice.total }}</p>
-    <p>{{ invoice.status }}</p>
-    <p>{{ invoice.paymentDue }}</p>
+    <p class="clientName">{{ invoice.clientName }}</p>
+    <p class="id">{{ invoice.id }}</p>
+    <p class="total">{{ invoice.total }}</p>
+    <p class="status">{{ invoice.status }}</p>
+    <p class="paymentDue">{{ invoice.paymentDue }}</p>
   </div>
 </div>
