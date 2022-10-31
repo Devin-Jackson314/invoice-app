@@ -1,3 +1,5 @@
+import { AppRoutingModule } from "./app-routing.module";
+
 export interface Invoices {
     clientAddress: {
         city: string;
@@ -15,6 +17,15 @@ export interface Invoices {
     description: string;
     id: string;
     items: object[];
-
-
+    paymentDue: string;
+    paymentTerms: number;
+    senderAddress: {
+        city: string;
+        country: string;
+        postCode: string;
+        street: string;
+        
+    }
+    status: string;
+    total: number;
 }
