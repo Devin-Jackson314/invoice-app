@@ -13,9 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InvoicesReducer } from './store/reducers/invoices.reducer';
 import { loadInvoicesEffect } from './store/effects/loadinvoices';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { FormsModule } from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +29,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+   
   
     StoreModule.forRoot( {
      invoices: InvoicesReducer
