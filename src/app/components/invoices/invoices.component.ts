@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { DataService } from 'src/app/services/data.service';
 import { InvoicesSelector } from 'src/app/store/selectors/invoices.selectors';
 import { Invoices } from 'src/app/invoicedata';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-invoices',
@@ -13,7 +14,7 @@ export class InvoicesComponent implements OnInit {
   myData: any;
   Filter: any;
 
-  constructor(private dataservice: DataService, private store: Store) { 
+  constructor(private dataservice: DataService, private store: Store, private forms: FormsModule) { 
 
   }
 

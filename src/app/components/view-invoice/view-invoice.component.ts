@@ -5,6 +5,7 @@ import { InvoicesSelector } from 'src/app/store/selectors/invoices.selectors';
 import { viewInvoice } from 'src/app/store/selectors/viewinvoices.selectors';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-view-invoice',
   templateUrl: './view-invoice.component.html',
