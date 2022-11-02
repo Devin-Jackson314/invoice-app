@@ -42,5 +42,65 @@
     </div>
   </div>
 
-  <form [formGroup]="invoiceForm"></form>
+  <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+    <label for="BillersAddress">Address</label>
+    <input id="BillersAddress" type="text" formControlName="BillersAddress" />
+
+    <label for="City">City</label>
+    <input id="City" type="text" formControlName="City" />
+
+    <label for="PostCode">PostCode</label>
+    <input id="PostCode" type="text" formControlName="PostCode" />
+
+    <label for="Country">Country</label>
+    <input id="Country" type="text" formControlName="PostCode" />
+
+    <label for="ClientsName">Name</label>
+    <input id="ClientsName" type="text" formControlName="ClientsName" />
+
+    <label for="ClientsEmail">Email</label>
+    <input id="ClientsEmail" type="text" formControlName="ClientsEmail" />
+
+    <label for="ClientAddress">Address</label>
+    <input id="ClientAddress" type="text" formControlName="ClientAddress" />
+
+    <label for="ClientsCity">City</label>
+    <input id="ClientsCity" type="text" formControlName="ClientsCity" />
+
+    <label for="ClientPostCode">PostCode</label>
+    <input id="ClientPostCode" type="text" formControlName="ClientPostCode" />
+
+    <label for="ClientsCountry">Country</label>
+    <input id="ClientsCountry" type="text" formControlName="ClientsCountry" />
+
+    <label for="InvoiceDate">Date</label>
+    <input id="InvoiceDate" type="text" formControlName="InvoiceDate" />
+
+    <label for="PaymentTerms">PaymentTerms</label>
+    <input id="PaymentTerms" type="text" formControlName="PaymentTerms" />
+
+    <label for="ProjectDescription">ProjectDescription</label>
+    <input
+      id="ProjectDescription"
+      type="text"
+      formControlName="ProjectDescription"
+    />
+
+    <label for="ItemName">ItemName</label>
+    <input id="ItemName" type="text" formControlName="ItemName" />
+
+    <label for="Qty">Qty</label>
+    <input id="Qty" type="text" formControlName="Qty" />
+
+    <label for="Price">Price</label>
+    <input id="Price" type="text" formControlName="Price" />
+
+    <label for="Total">Total</label>
+    <input id="Total" type="text" formControlName="Total" />
+
+    <label for="ItemName2">ItemName</label>
+    <input id="ItemName2" type="text" formControlName="ItemName2" />
+    <button type="submit">SaveChanges</button>
+    <button>Cancel</button>
+  </form>
 </div>
