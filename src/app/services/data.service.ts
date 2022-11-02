@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
   fireBaseUrl = "https://invoice-app-d67cd-default-rtdb.firebaseio.com/";
-  deleteUrl = "https://invoice-app-d67cd-default-rtdb.firebaseio.com/"
+  deleteUrl = "https://invoice-app-d67cd-default-rtdb.firebaseio.com/";
+  editfireBaseUrl = "https://invoice-app-d67cd-default-rtdb.firebaseio.com/"
   jsonExt = ".json";
   Url = `${this.fireBaseUrl}${this.jsonExt}`
   constructor(private http: HttpClient) { }
@@ -22,5 +23,14 @@ export class DataService {
   deleteInvoice(id: any) {
     const url = `${this.deleteUrl}${id}${this.jsonExt}`
     return this.http.delete(url)
+  }
+
+  editInvoice(id: any) {
+    const editUrl = `${this.editfireBaseUrl}${id}${this.jsonExt}`
+    return this.http.patch(editUrl,id)
+  }
+
+  newInvoice(newInvoice: any) {
+     return this.http.post<any>(this.Url, newInvoice)
   }
 }
