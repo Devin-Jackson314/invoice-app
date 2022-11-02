@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Invoices } from '../invoicedata';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class DataService {
     return this.http.patch(editUrl,id)
   }
 
-  newInvoice(newInvoice: any) {
-     return this.http.post<any>(this.Url, newInvoice)
+  newInvoice(payload: Invoices) {
+     return this.http.post<Invoices>(this.Url, payload)
   }
 }
