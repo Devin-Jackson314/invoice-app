@@ -14,24 +14,24 @@ import { setAPIStatus } from "../Shared/app.action";
 export class editEffect{
     constructor(private actions$: Actions, private dataService: DataService,  private store: Store,
     private appStore: Store<Appstate>) {}
-// editInvoice$ = createEffect(() => {
-//     return this.actions$.pipe(
-//       ofType(invokeEdit),
-//       switchMap((action) => {
-//         this.appStore.dispatch(
-//           setAPIStatus({ apiStatus: { ResponseMessage: '', Status: '' } })
-//         );
-//         return this.dataService.editInvoice(action.editInvoice).pipe(
-//           map((data) => {
-//             this.appStore.dispatch(
-//               setAPIStatus({
-//                 apiStatus: { ResponseMessage: '', Status: 'success' },
-//               })
-//             );
-//               return invokeEditSuccess({ editInvoice: data});
-//           })
-//         );
-//       })
-//     );
-//   });
+editInvoice$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(invokeEdit),
+      switchMap((action) => {
+        this.appStore.dispatch(
+          setAPIStatus({ apiStatus: { ResponseMessage: '', Status: '' } })
+        );
+        return this.dataService.editInvoice(action.editInvoice).pipe(
+          map((data) => {
+            this.appStore.dispatch(
+              setAPIStatus({
+                apiStatus: { ResponseMessage: '', Status: 'success' },
+              })
+            );
+              return invokeEditSuccess({ editInvoice: data});
+          })
+        );
+      })
+    );
+  });
 }
