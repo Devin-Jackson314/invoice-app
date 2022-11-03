@@ -8,5 +8,5 @@ export const invokeEdit = createAction(
 
 export const invokeEditSuccess = createAction(
     '[Invoices] Invoke edit sucess',
-    props<{editInvoice: Invoices}>()
+    props<any>()
 );
