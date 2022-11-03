@@ -125,6 +125,29 @@ export class InvoicesComponent implements OnInit {
   total() {
     
   }
+
+  // toggleForm() {
+  //   document.getElementById('form')?.classList.toggle('toggle');
+  //    document.getElementById('clickForm')!.style.marginLeft = "0";
+  // }
+
+openForm() {
+  
+  const form = document.getElementsByClassName('formContainer',) as HTMLCollectionOf<HTMLElement>; 
+
+  for (let i = 0; i < form.length; i++) {
+  form[i].style.display = 'block';
+}
+    
+  }
+
+
+
+
+
+
+
+
   // getMyData() {
   //    return this.dataservice.getData().subscribe((data) => {
   //    this.myData = data

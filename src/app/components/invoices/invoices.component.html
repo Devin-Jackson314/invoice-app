@@ -16,7 +16,7 @@
       </select>
     </div>
 
-    <button>
+    <button id="clickForm" class="newFormbutton" (click)="openForm()">
       <div class="plus">
         <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -42,7 +42,7 @@
     <p class="status">{{ invoice.status }}</p>
   </div>
 
-  <div class="formContainer">
+  <div id="form" class="formContainer">
     <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit('pending')">
       <label for="BillersAddress">Address</label>
       <input id="BillersAddress" type="text" formControlName="BillersAddress" />
