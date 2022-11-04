@@ -3,8 +3,10 @@
   <button>Go back</button>
 
   <div class="infoCard" *ngFor="let invoice of myInvoice$ | async">
-    <div>
-      <p>{{ invoice.status }}</p>
+    <div class="statusDiv">
+      <p class="nestedStatus">Status</p>
+
+      <p class="status">{{ invoice.status }}</p>
     </div>
 
     <div>
