@@ -126,6 +126,46 @@ export class InvoicesComponent implements OnInit {
     
   }
 
+  save() {
+     this.invoiceObject = {
+    clientAddress :{
+      city: this.invoiceForm.value.City,
+      country: this.invoiceForm.value.Country,
+       postCode: this.invoiceForm.value.PostCode,
+       street: this.invoiceForm.value.BillersAddress,
+     },
+     clientEmail: this.invoiceForm.value.ClientsEmail,
+      clientName:this.invoiceForm.value.ClientsName,
+     createdAt: this.invoiceForm.value.InvoiceDate,
+     description: this.invoiceForm.value.ProjectDescription,
+     id: this.generateId(),
+        items: [
+          {
+            name: 'Dave',
+            price: 1809,
+            quantity: 1,
+            total: 1
+          }
+     ],
+    paymentDue:  this.invoiceForm.value.InvoiceDate,
+    paymentTerms: this.invoiceForm.value.PaymentTerms,
+    senderAddress: {
+        city: this.invoiceForm.value.ClientsCity,
+        country: this.invoiceForm.value.ClientsCountry,
+        postCode: this.invoiceForm.value.ClientPostCode,
+        street: this.invoiceForm.value.ClientAddress
+        
+    },
+    status: 'pending',
+    total: this.total()
+       
+     
+
+   }
+    this.store.dispatch(newInvoice({ newInvoice: this.invoiceObject }));
+    
+  }
+
   // toggleForm() {
   //   document.getElementById('form')?.classList.toggle('toggle');
   //    document.getElementById('clickForm')!.style.marginLeft = "0";
