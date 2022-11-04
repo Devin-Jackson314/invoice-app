@@ -82,14 +82,14 @@
 
   .formContainer {
     height: 100%;
-    width: 0;
+    width: 375px;
     position: fixed;
     z-index: 20;
     background-color: #ffffff;
     transition: 0.5s;
     top: 0;
     left: 0;
-    background-color: #111;
+
     padding-top: 60px;
     display: none;
   }
