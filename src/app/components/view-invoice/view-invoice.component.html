@@ -9,7 +9,7 @@
       <p class="status">{{ invoice.status }}</p>
     </div>
 
-    <div>
+    <div class="invoiceDetails">
       <p>{{ invoice.description }}</p>
 
       <div class="senderAddress">
@@ -24,10 +24,6 @@
         <p>{{ invoice.paymentDue }}</p>
       </div>
 
-      <div class="clientEmail">
-        <p>{{ invoice.clientEmail }}</p>
-      </div>
-
       <div class="clientAddress">
         <p>{{ invoice.clientName }}</p>
         <p>{{ invoice.clientAddress.street }}</p>
@@ -36,11 +32,20 @@
         <p>{{ invoice.clientAddress.country }}</p>
       </div>
 
+      <div class="clientEmail">
+        <p>{{ invoice.clientEmail }}</p>
+      </div>
+
       <div *ngFor="let item of invoice.items">
         <p>{{ item.name }}</p>
         <p>{{ item.price }}</p>
         <p>{{ item.total }}</p>
       </div>
+    </div>
+    <div class="buttons">
+      <button>Edit</button>
+      <button>Delete</button>
+      <button>Mark as Paid</button>
     </div>
   </div>
   <div class="formContainer">

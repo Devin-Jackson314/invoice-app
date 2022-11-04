@@ -2,21 +2,49 @@ import { Injectable } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { createEffect, Actions, ofType } from "@ngrx/effects";
 import { newInvoice, newInvoiceSuccess } from "../actions/newinvoice.actions"; 
-import { map, concatMap } from "rxjs";
-
+import { map, concatMap,switchMap} from "rxjs";
+import { Invoices } from "src/app/invoicedata";
+import { setAPIStatus } from "../Shared/app.action";
+import { Appstate } from "../Shared/appstate";
+import { Store } from "@ngrx/store";
 @Injectable()
 
 export class newInvoiceEffect {
-    constructor( private actions$: Actions, private dataService: DataService){}
-
-    newInvoice$ = createEffect(() => 
-        this.actions$.pipe(
-            ofType(newInvoice),
-            concatMap((newInvoice) =>
-            this.dataService.newInvoice(newInvoice).pipe(
-                map((uuid) => newInvoiceSuccess({...newInvoice, uuid}))
-            )
-            )
-        )
-    )
+    constructor( private actions$: Actions, private dataService: DataService, private appStore: Store<Appstate>){}
+newInvoice$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(newInvoice),
+      switchMap((action: { newInvoice: Invoices; }) => {
+        this.appStore.dispatch(
+          setAPIStatus({ apiStatus: { ResponseMessage: '', Status: '' } })
+        );
+        return this.dataService.newInvoice(action.newInvoice).pipe(
+          map((data) => {
+            this.appStore.dispatch(
+              setAPIStatus({
+                apiStatus: { ResponseMessage: '', Status: 'success' },
+              })
+            );
+            return newInvoiceSuccess({ newInvoice: data });
+          })
+        );
+      })
+    );
+  });
 }
+
+    
+
+
+
+
+// newInvoice$ = createEffect(() => 
+    //     this.actions$.pipe(
+    //         ofType(newInvoice),
+    //         switchMap((action) =>
+    //         this.appStore.dispatch(setAPIStatus({Status:{RespsonseMessage: '', }})).pipe(
+    //             map((uuid) => newInvoiceSuccess({...newInvoice, uuid}))
+    //         )
+    //         )
+    //     )
+    // )

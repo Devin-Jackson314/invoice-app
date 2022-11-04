@@ -12,12 +12,19 @@ export const initialState: object = {
 export const InvoicesReducer = createReducer(
   initialState,
 
-  on(loadInvoicessSuccess, (State, invoices) => invoices),
+  on(loadInvoicessSuccess, (state, invoices) => invoices),
 
-  on(newInvoiceSuccess, (state, invoices) => {
-        const payload = {...invoices}
-        delete payload.uuid
-        return {...state, [invoices.uuid.name]:payload}
+  on(newInvoiceSuccess, (state, { newInvoice }) => {
+    let newState = [{...state}];
+    newState.unshift(newInvoice);
+      return newState
     })
 
 );
+
+
+//  on(newInvoiceSuccess, (state, invoices) => {
+//         const payload = {...invoices}
+//         delete payload.uuid
+//         return {...state, [invoices.uuid.name]:payload}
+//     })

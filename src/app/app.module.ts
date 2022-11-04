@@ -15,6 +15,7 @@ import { loadInvoicesEffect } from './store/effects/loadinvoices';
 import { StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { appReducer } from './store/Shared/app.reduce';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { appReducer } from './store/Shared/app.reduce';
   ],
   imports: [
     BrowserModule,
-    StoreDevtoolsModule.instrument(),
+    
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -36,8 +37,11 @@ import { appReducer } from './store/Shared/app.reduce';
     StoreModule.forRoot( {
      invoices: InvoicesReducer, appState: appReducer
     }),
-    EffectsModule.forRoot([loadInvoicesEffect])
+
+    EffectsModule.forRoot([loadInvoicesEffect]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
+  
 
   providers: [DataService, Store],
   bootstrap: [AppComponent]

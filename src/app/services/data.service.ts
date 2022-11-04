@@ -32,6 +32,6 @@ export class DataService {
   }
 
   newInvoice(payload: Invoices) {
-     return this.http.post<Invoices>(this.Url, payload)
+    return this.http.post<Invoices>(this.Url, payload);
   }
 }

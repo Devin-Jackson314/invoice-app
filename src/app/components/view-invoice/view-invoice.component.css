@@ -28,4 +28,9 @@
     margin-top: 47px;
     margin-left: 22px;
   }
+
+  .invoiceDetails {
+    width: 327px;
+    height: 695px;
+  }
 }
