@@ -93,4 +93,14 @@
     padding-top: 60px;
     display: none;
   }
+
+  .status {
+    margin-left: 280px;
+    margin-top: -64px;
+  }
+
+  .clientName {
+    margin-bottom: -26px;
+    margin-top: 40px;
+  }
 }

@@ -3,7 +3,7 @@
 <div class="container">
   <div class="headerContainer">
     <p>Invoices</p>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
       <select
         [(ngModel)]="Filter"
         class="invoiceFilter"
@@ -14,7 +14,7 @@
         <option value="pending">Pending</option>
         <option value="paid">Paid</option>
       </select>
-    </div>
+    </div> -->
 
     <button id="clickForm" class="newFormbutton" (click)="openForm()">
       <div class="plus">
@@ -39,6 +39,7 @@
 
     <p class="paymentDue">Due {{ invoice.paymentDue }}</p>
     <p class="total">$ {{ invoice.total }}</p>
+
     <p class="status">{{ invoice.status }}</p>
   </div>
 
