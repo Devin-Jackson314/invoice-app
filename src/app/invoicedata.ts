@@ -28,4 +28,5 @@ export interface Invoices {
     }
     status: string;
     total: number;
+    
 }

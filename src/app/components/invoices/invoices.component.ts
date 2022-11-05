@@ -110,6 +110,7 @@ export class InvoicesComponent implements OnInit {
         
       },
       status: status,
+    
       total: this.total()
        
      

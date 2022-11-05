@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store'
 import { EMPTY, map, mergeMap, switchMap, withLatestFrom } from 'rxjs';
 import { DataService } from "src/app/services/data.service";
 import { Invoices } from "src/app/invoicedata";
-import { invokeDelete,deleteSuccess  } from "../actions/deleteinvoice";
+import { invokeDelete,deleteSuccess  } from "../actions/deleteinvoice.action";
 import { viewInvoice } from "../selectors/viewinvoices.selectors";
 import { Appstate } from "../Shared/appstate";
 import { setAPIStatus } from "../Shared/app.action";
@@ -14,7 +14,7 @@ import { setAPIStatus } from "../Shared/app.action";
 export class deleteEffect {
     constructor(private actions$: Actions, private dataService: DataService, private store: Store,
         private appStore: Store<Appstate>) { }
-deleteBooksAPI$ = createEffect(() => {
+deleteInvoices$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeDelete),
       switchMap((actions) => {
