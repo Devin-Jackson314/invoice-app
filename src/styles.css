@@ -8,3 +8,7 @@ Body.DarkTheme {
   --navBackgroundColor: #1e2139;
   --textColor: #dfe3fa;
 } */
+
+body {
+  background-color: #f2f2f2;
+}

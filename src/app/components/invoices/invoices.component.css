@@ -33,6 +33,8 @@
   .cards {
     width: 327px;
     height: 134px;
+    background-color: #ffffff;
+    margin-left: 24px;
   }
 
   .clientName {
@@ -43,8 +45,10 @@
     line-height: 15px;
     text-align: right;
     letter-spacing: -0.25px;
-
+    margin-top: 30px;
     color: #858bb2;
+    position: relative;
+    top: 10px;
   }
 
   .id {
@@ -76,7 +80,7 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.8px;
-
+    display: flex;
     color: #0c0e16;
   }
 
@@ -95,12 +99,32 @@
   }
 
   .status {
-    margin-left: 280px;
+    margin-left: 33px;
     margin-top: -64px;
   }
 
-  .clientName {
-    margin-bottom: -26px;
-    margin-top: 40px;
+  .statusContainer {
+    width: 104px;
+    height: 40px;
+    margin-left: 222px;
+  }
+
+  .statusCircle {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    /* margin-left: 212px; */
+  }
+
+  .dollarSign {
+    margin-top: 0px;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+
+    color: #0c0e16;
   }
 }
