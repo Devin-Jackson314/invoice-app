@@ -47,6 +47,11 @@ export class ViewInvoiceComponent implements OnInit {
      this.myInvoice$ = this.store.select(viewInvoice(id))
   }
 
-onSubmit(){}
+  onSubmit() { }
+  
+
+  delete() {
+    
+  }
   
 }

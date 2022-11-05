@@ -16,7 +16,7 @@ export class newInvoiceEffect {
             ofType(newInvoice),
             switchMap((action) => {
        
-                return this.dataService.newInvoice(action.payload)
+                return this.dataService.addInvoice(action.payload)
                     .pipe(map((data) => newInvoiceSuccess({ response: data })))
             })
         )

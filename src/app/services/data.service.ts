@@ -31,7 +31,7 @@ export class DataService {
     return this.http.patch(editUrl,id)
   }
 
-  newInvoice(payload: Invoices) {
+  addInvoice(payload: Invoices) {
     return this.http.post<Invoices>(this.Url, payload);
   }
 }
