@@ -10,29 +10,20 @@ import { Store } from "@ngrx/store";
 @Injectable()
 
 export class newInvoiceEffect {
-    constructor( private actions$: Actions, private dataService: DataService, private appStore: Store<Appstate>){}
-newInvoice$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(newInvoice),
-      switchMap((action: { newInvoice: Invoices; }) => {
-        this.appStore.dispatch(
-          setAPIStatus({ apiStatus: { ResponseMessage: '', Status: '' } })
-        );
-        return this.dataService.newInvoice(action.newInvoice).pipe(
-          map((data) => {
-            this.appStore.dispatch(
-              setAPIStatus({
-                apiStatus: { ResponseMessage: '', Status: 'success' },
-              })
-            );
-            return newInvoiceSuccess({ newInvoice: data });
-          })
-        );
-      })
-    );
-  });
-}
+    constructor(private actions$: Actions, private dataService: DataService, private appStore: Store<Appstate>) { }
+    newInvoice$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(newInvoice),
+            switchMap((action) => {
+       
+                return this.dataService.newInvoice(action.payload)
+                    .pipe(map((data) => newInvoiceSuccess({ response: data })))
+            })
+        )
+    )
+  
 
+}
     
 
 
@@ -47,4 +38,4 @@ newInvoice$ = createEffect(() => {
     //         )
     //         )
     //     )
-    // )
+   

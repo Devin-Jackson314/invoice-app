@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
+import { Invoices } from 'src/app/invoicedata';
 import { loadInvoicessSuccess } from '../actions/invoices.actions';
-import { newInvoiceSuccess } from '../actions/newinvoice.actions';
+import { newInvoice, newInvoiceSuccess } from '../actions/newinvoice.actions';
 
 
 
@@ -14,11 +15,25 @@ export const InvoicesReducer = createReducer(
 
   on(loadInvoicessSuccess, (state, invoices) => invoices),
 
-  on(newInvoiceSuccess, (state, { newInvoice }) => {
+  on(newInvoiceSuccess, (state, { response}) => {
     let newState = [{...state}];
-    newState.unshift(newInvoice);
+    newState.push(response)
       return newState
+  }),
+  on(newInvoice, (state, { payload }) => {
+    const invoiceState = { ...state };
+    const InvoiceArray: Invoices[] = [];
+    const key = 'key' as string;
+    Object.keys(invoiceState).forEach( (key:string) => {
+      console.log(invoiceState,{ key }, 'invoice state');
+      console.log(key, "key")
+      
     })
+    // InvoiceArray = [...invoiceState]
+    console.log(invoiceState, "invoiceState")
+    InvoiceArray.push(payload)
+    return InvoiceArray
+  })
 
 );
 
