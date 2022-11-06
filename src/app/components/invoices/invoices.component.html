@@ -15,7 +15,22 @@
         <option value="paid">Paid</option>
       </select>
     </div> -->
-
+    <div class="filterContainer">
+      Filter<svg
+        class="svg"
+        width="10"
+        height="7"
+        viewBox="0 0 10 7"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 1L5.2279 5.2279L9.4558 1"
+          stroke="#7C5DFA"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
     <button id="clickForm" class="newFormbutton" (click)="openForm()">
       <div class="plus">
         <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +50,7 @@
     *ngFor="let i = index; let invoice; of: myInvoices$ | async"
   >
     <p class="clientName">{{ invoice.clientName }}</p>
-    <p class="id">{{ invoice.id }}</p>
+    <p class="id">#{{ invoice.id }}</p>
 
     <p class="paymentDue">Due {{ invoice.paymentDue }}</p>
     <div class="total">
@@ -89,71 +104,105 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div id="form" class="formContainer">
-    <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit('pending')">
-      <label for="BillersAddress">Address</label>
-      <input id="BillersAddress" type="text" formControlName="BillersAddress" />
-      <br />
+<div id="form" class="formContainer">
+  <div (click)="closeForm()" class="goBack">
+    <svg
+      width="6"
+      height="11"
+      viewBox="0 0 6 11"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.3418 0.885742L0.113895 5.11364L4.3418 9.34155"
+        stroke="#7C5DFA"
+        stroke-width="2"
+      />
+    </svg>
+    Go Back
+  </div>
+  <br />
+  <p class="newInvoice">New Invoice</p>
+  <p class="billFrom">Bill From</p>
+  <br />
+  <form
+    class="formText"
+    [formGroup]="invoiceForm"
+    (ngSubmit)="onSubmit('pending')"
+  >
+    <label for="BillersAddress">Street Address</label>
+    <br />
+    <input id="BillersAddress" type="text" formControlName="BillersAddress" />
+    <br />
+    <div>
       <label for="City">City</label>
+      <br />
       <input id="City" type="text" formControlName="City" />
       <br />
       <label for="PostCode">PostCode</label>
-      <input id="PostCode" type="text" formControlName="PostCode" />
-      <br />
-      <label for="Country">Country</label>
-      <input id="Country" type="text" formControlName="PostCode" />
-      <br />
-      <label for="ClientsName">Name</label>
-      <input id="ClientsName" type="text" formControlName="ClientsName" />
-      <br />
-      <label for="ClientsEmail">Email</label>
-      <input id="ClientsEmail" type="text" formControlName="ClientsEmail" />
-      <br />
-      <label for="ClientAddress">Address</label>
-      <input id="ClientAddress" type="text" formControlName="ClientAddress" />
-      <br />
-      <label for="ClientsCity">City</label>
-      <input id="ClientsCity" type="text" formControlName="ClientsCity" />
-      <br />
-      <label for="ClientPostCode">PostCode</label>
-      <input id="ClientPostCode" type="text" formControlName="ClientPostCode" />
-      <br />
-      <label for="ClientsCountry">Country</label>
-      <input id="ClientsCountry" type="text" formControlName="ClientsCountry" />
-      <br />
-      <label for="InvoiceDate">Date</label>
-      <input id="InvoiceDate" type="text" formControlName="InvoiceDate" />
-      <br />
-      <label for="PaymentTerms">PaymentTerms</label>
-      <input id="PaymentTerms" type="text" formControlName="PaymentTerms" />
-      <br />
-      <label for="ProjectDescription">ProjectDescription</label>
-      <input
-        id="ProjectDescription"
-        type="text"
-        formControlName="ProjectDescription"
-      />
-      <br />
-      <label for="ItemName">ItemName</label>
-      <input id="ItemName" type="text" formControlName="ItemName" />
-      <br />
-      <label for="Qty">Qty</label>
-      <input id="Qty" type="text" formControlName="Qty" />
-      <br />
-      <label for="Price">Price</label>
-      <input id="Price" type="text" formControlName="Price" />
-      <br />
-      <label for="Total">Total</label>
-      <input id="Total" type="text" formControlName="Total" />
-      <br />
-      <label for="ItemName2">ItemName</label>
-      <input id="ItemName2" type="text" formControlName="ItemName2" />
+    </div>
+    <br />
+    <input id="PostCode" type="text" formControlName="PostCode" />
+    <br />
+    <label for="Country">Country</label>
+    <br />
+    <input id="Country" type="text" formControlName="PostCode" />
+    <br />
+    <label for="ClientsName">Name</label>
+    <br />
+    <input id="ClientsName" type="text" formControlName="ClientsName" />
+    <br />
+    <label for="ClientsEmail">Email</label>
+    <br />
+    <input id="ClientsEmail" type="text" formControlName="ClientsEmail" />
+    <br />
+    <label for="ClientAddress">Address</label>
+    <br />
+    <input id="ClientAddress" type="text" formControlName="ClientAddress" />
+    <br />
+    <label for="ClientsCity">City</label>
+    <br />
+    <input id="ClientsCity" type="text" formControlName="ClientsCity" />
+    <br />
+    <label for="ClientPostCode">PostCode</label>
+    <input id="ClientPostCode" type="text" formControlName="ClientPostCode" />
+    <br />
+    <label for="ClientsCountry">Country</label>
+    <input id="ClientsCountry" type="text" formControlName="ClientsCountry" />
+    <br />
+    <label for="InvoiceDate">Date</label>
+    <input id="InvoiceDate" type="text" formControlName="InvoiceDate" />
+    <br />
+    <label for="PaymentTerms">PaymentTerms</label>
+    <input id="PaymentTerms" type="text" formControlName="PaymentTerms" />
+    <br />
+    <label for="ProjectDescription">ProjectDescription</label>
+    <input
+      id="ProjectDescription"
+      type="text"
+      formControlName="ProjectDescription"
+    />
+    <br />
+    <label for="ItemName">ItemName</label>
+    <input id="ItemName" type="text" formControlName="ItemName" />
+    <br />
+    <label for="Qty">Qty</label>
+    <input id="Qty" type="text" formControlName="Qty" />
+    <br />
+    <label for="Price">Price</label>
+    <input id="Price" type="text" formControlName="Price" />
+    <br />
+    <label for="Total">Total</label>
+    <input id="Total" type="text" formControlName="Total" />
+    <br />
+    <label for="ItemName2">ItemName</label>
+    <input id="ItemName2" type="text" formControlName="ItemName2" />
 
-      <button>SaveChanges</button>
-      <button>Cancel</button><button>Discard</button>
-      <button (click)="onSubmit('draft')">SaveasDraft</button>
-      <button (click)="onSubmit('pending')">Save&Send</button>
-    </form>
-  </div>
+    <button>SaveChanges</button>
+    <button>Cancel</button><button>Discard</button>
+    <button (click)="onSubmit('draft')">SaveasDraft</button>
+    <button (click)="onSubmit('pending')">Save&Send</button>
+  </form>
 </div>

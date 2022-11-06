@@ -2,6 +2,7 @@
   .headerContainer {
     display: flex;
     margin-top: 38px;
+    justify-content: space-between;
   }
 
   .plus {
@@ -14,7 +15,7 @@
     background-color: #ffffff;
   }
 
-  button {
+  .newFormbutton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,17 +86,16 @@
   }
 
   .formContainer {
-    height: 100%;
-    width: 375px;
+    height: 89%;
     position: fixed;
     z-index: 20;
     background-color: #ffffff;
-    transition: 0.5s;
     top: 0;
     left: 0;
-
-    padding-top: 60px;
+    margin-top: 72px;
     display: none;
+    margin-left: 7px;
+    overflow-x: hidden;
   }
 
   .status {
@@ -126,5 +126,75 @@
     letter-spacing: -0.8px;
 
     color: #0c0e16;
+  }
+
+  .filterContainer {
+    position: relative;
+    left: 136px;
+    top: 16px;
+    display: flex;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    letter-spacing: -0.25px;
+
+    color: #0c0e16;
+  }
+
+  .svg {
+    position: relative;
+    top: 6px;
+  }
+
+  label {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    color: #7e88c3;
+  }
+
+  .billFrom {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+
+    color: #7c5dfa;
+  }
+
+  .newInvoice {
+    width: 157px;
+    height: 32px;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+
+    color: #0c0e16;
+  }
+
+  #BillersAddress {
+    width: 327px;
+    height: 48px;
+  }
+
+  #City {
+    width: 152px;
+    height: 48px;
+  }
+
+  #PostCode {
+    width: 152px;
+    height: 48px;
   }
 }

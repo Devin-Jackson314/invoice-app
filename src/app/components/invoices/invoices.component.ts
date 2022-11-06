@@ -173,13 +173,19 @@ export class InvoicesComponent implements OnInit {
   // }
 
 openForm() {
-  
+  document.body.style.overflow = "hidden";
   const form = document.getElementsByClassName('formContainer',) as HTMLCollectionOf<HTMLElement>; 
-
-  for (let i = 0; i < form.length; i++) {
-  form[i].style.display = 'block';
+  form[0].style.display = 'block';
+  // for (let i = 0; i < form.length; i++) {
+  // 
+  // }
+  
 }
-    
+  
+  closeForm() {
+     document.body.style.overflow = "scroll";
+  const form = document.getElementsByClassName('formContainer',) as HTMLCollectionOf<HTMLElement>; 
+  form[0].style.display = 'none';
   }
 
 
